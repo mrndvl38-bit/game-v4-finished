@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolution Trail</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <header class="app-header">
+            <h1>Evolution Trail</h1>
+            <button id="btn-help" class="ghost">Help</button>
+        </header>
+
+        <section id="status-bar" class="status-bar">
+            <div><span class="label">Species</span><span id="species-name" class="value"></span></div>
+            <div><span class="label">Era</span><span id="era" class="value"></span></div>
+            <div><span class="label">Day</span><span id="day" class="value"></span></div>
+            <div><span class="label">Distance</span><span id="distance" class="value"></span></div>
+            <div><span class="label">Food</span><span id="food" class="value"></span></div>
+            <div><span class="label">Health</span><span id="health" class="value"></span></div>
+            <div><span class="label">Morale</span><span id="morale" class="value"></span></div>
+            <div class="spacer"></div>
+            <button id="btn-save" class="ghost">Save</button>
+            <button id="btn-load" class="ghost">Load</button>
+            <button id="btn-reset" class="ghost">Reset</button>
+        </section>
+
+        <section class="board">
+            <div class="progress">
+                <div class="track">
+                    <div id="progress-fill" class="fill"></div>
+                </div>
+                <div id="milestones" class="milestones"></div>
+            </div>
+
+            <div class="actions">
+                <button id="btn-travel">Travel</button>
+                <button id="btn-rest">Rest</button>
+                <button id="btn-forage">Forage</button>
+                <button id="btn-hunt">Hunt</button>
+                <button id="btn-research">Innovate</button>
+            </div>
+
+            <div id="log" class="log" aria-live="polite"></div>
+        </section>
+
+        <dialog id="event-dialog">
+            <form method="dialog" class="event-card">
+                <h2 id="event-title"></h2>
+                <p id="event-text"></p>
+                <div id="event-choices" class="choices"></div>
+                <menu>
+                    <button value="close" id="event-close">Continue</button>
+                </menu>
+            </form>
+        </dialog>
+
+        <dialog id="help-dialog">
+            <form method="dialog" class="help-card">
+                <h2>How to Play</h2>
+                <p>
+                    Journey from early apes through key hominin species to modern humans.
+                    Manage food, health, morale, and distance. Travel to progress, rest to recover,
+                    forage/hunt for food, and innovate to unlock advances. Random events will help or hinder you.
+                    Reach Homo sapiens with your group alive to win.
+                </p>
+                <ul>
+                    <li>Travel advances distance but costs food and morale.</li>
+                    <li>Rest restores health and morale but consumes time and some food.</li>
+                    <li>Forage/Hunt gain food; success varies by species and era.</li>
+                    <li>Innovate unlocks tools and cognition; evolve at milestones.</li>
+                </ul>
+                <menu>
+                    <button value="close">Close</button>
+                </menu>
+            </form>
+        </dialog>
+    </div>
+
+    <div class="evolution-timeline">
+        <picture>
+            <source srcset="assets/evolution_timeline.webp" type="image/webp">
+            <source srcset="assets/evolution_timeline.jpg" type="image/jpeg">
+            <img src="assets/evolution_timeline.png" alt="Evolution Timeline from Ape to Human">
+        </picture>
+    </div>
+
+    <script src="game.js"></script>
+    <script>
+        // Initialize game on load
+        window.addEventListener('DOMContentLoaded', () => {
+            window.EvolutionTrail.init();
+        });
+    </script>
+    </body>
+    </html>
+
+
