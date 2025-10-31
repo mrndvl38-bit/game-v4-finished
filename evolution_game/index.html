@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Evolution Trail</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ui">
+    <h1>Evolution Trail</h1>
+    <div class="controls">
+      <button id="startBtn">Start</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="resetBtn">Reset</button>
+      Speed: <input id="speedRange" type="range" min="0.25" max="4" step="0.25" value="1">
+      <label id="speedLabel">1x</label>
+      Time-scale: <input id="timeScaleRange" type="range" min="0.25" max="10" step="0.25" value="1">
+      <label id="timeScaleLabel">1x</label>
+      <label style="display:inline-flex;align-items:center;gap:6px"><input id="fastEvo" type="checkbox"> Fast evolution</label>
+    </div>
+
+    <div class="resources-panel">
+      <div class="resource">
+        <span>Food</span>
+        <span id="foodCount">100</span>
+      </div>
+      <div class="resource">
+        <span>Tools</span>
+        <span id="toolCount">3</span>
+      </div>
+      <div class="resource">
+        <span>Medicine</span>
+        <span id="medicineCount">2</span>
+      </div>
+    </div>
+
+    <div class="party-panel">
+      <h2>Party Members <span id="partyCount">(0)</span></h2>
+      <div id="partyList"></div>
+    </div>
+
+    <div class="event-log">
+      <h2>Event Log</h2>
+      <div id="eventLog"></div>
+    </div>
+    </div>
+
+    <div class="resources">
+      <div class="resource">🍖 Food: <span id="foodCount">100</span></div>
+      <div class="resource">🛠️ Tools: <span id="toolCount">3</span></div>
+      <div class="resource">🌿 Medicine: <span id="medicineCount">2</span></div>
+    </div>
+
+    <div id="stats"></div>
+    <div class="species-panel">
+      <img id="speciesImg" src="assets/ape.svg" alt="species" />
+      <div id="speciesName">Ape</div>
+    </div>
+    
+    <div class="party-panel">
+      <h3>Your Party <span id="partyCount"></span></h3>
+      <div id="partyList"></div>
+    </div>
+
+    <div class="event-log" id="eventLog">
+      <div class="event">Your party begins their evolutionary journey...</div>
+    </div>
+
+    <p class="note">Survive, evolve, and guide your party through the ages.</p>
+  </div>
+  <canvas id="canvas"></canvas>
+
+  <script src="names.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
